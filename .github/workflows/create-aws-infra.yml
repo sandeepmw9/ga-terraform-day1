@@ -23,7 +23,7 @@ jobs:
       - name: test aws login
         run: | 
           aws sts get-caller-identity
-      - name: initialize and plan
+      - name: initialize, format and plan
         run: |
           terraform init
           terraform fmt
