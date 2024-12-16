@@ -1,6 +1,8 @@
 name: create aws infra
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - master
 jobs:
   create_plan:
     runs-on: ubuntu-latest
@@ -28,7 +30,10 @@ jobs:
           terraform init
           terraform fmt
           terraform plan -out myplan
-      - name: apply
-        run: terraform apply myplan
-      - name: destroy
-        run: terraform destroy --auto-approve
+      # - name: apply
+      #   run: terraform apply myplan
+      - name: get statefile   
+        uses: actions/upload-artifact@v4
+        with:
+          name: myplan
+          path: .
