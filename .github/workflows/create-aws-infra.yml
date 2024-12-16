@@ -2,7 +2,7 @@ name: create aws infra
 on:
   workflow_dispatch:
 jobs:
-  create:
+  create_plan:
     runs-on: ubuntu-latest
     steps:
       - name: get-code
@@ -27,4 +27,6 @@ jobs:
         run: |
           terraform init
           terraform fmt
-          terraform plan
+          terraform plan -out myplan
+      - name: apply
+        run: terraform apply myplan
