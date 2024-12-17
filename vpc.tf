@@ -39,7 +39,7 @@ resource "aws_route_table" "rtb1" {
   vpc_id = aws_vpc.my_vpc_161224.id
 
   route {
-    cidr_block = aws_subnet.pub_sub1.id
+    cidr_block = "0.0.0.0/0"
     gateway_id = aws_internet_gateway.igw1.id
   }
 
