@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
     bucket = "tfstate1224"
-    key = "terraform_states"
+    key    = "terraform_states"
     region = "ap-south-1"
   }
   required_providers {
