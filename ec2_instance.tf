@@ -20,7 +20,6 @@ resource "aws_instance" "ins_161224" {
   subnet_id                   = aws_subnet.pub_sub1.id
   associate_public_ip_address = true
 
-
   tags = {
     Name      = "ins_161224"
     terraform = true
