@@ -17,7 +17,6 @@ data "aws_ami" "ubuntu" {
 resource "aws_instance" "ins_161224" {
   ami                         = data.aws_ami.ubuntu.id
   instance_type               = "t3.micro"
-  availability_zone           = "ap-south-1a"
   subnet_id                   = aws_subnet.pub_sub1.id
   associate_public_ip_address = true
 
