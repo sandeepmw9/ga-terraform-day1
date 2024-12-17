@@ -21,10 +21,11 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ap-south-1
       - name: test aws login
-        run: | 
-          aws sts get-caller-identity
+        run: aws sts get-caller-identity
       - name: initialize
         run: terraform init
-      - name: destroy
-        run: terraform destroy -auto-approve
+      - name: plan_destroy
+        run: terraform plan -destroy -out myplan
+      - name: apply_destroy
+        run: terraform apply myplan
 
